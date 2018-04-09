@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tGf-de-tmz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tGf-de-tmz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -62,10 +62,25 @@
             </objects>
             <point key="canvasLocation" x="456.80000000000001" y="118.29085457271366"/>
         </scene>
+        <!--Map View-->
+        <scene sceneID="gS3-xf-sDR">
+            <objects>
+                <viewController id="kM4-8F-hA3" customClass="MapView" customModule="Group1Alpha" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5ic-0P-HUl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="BmA-Eg-Sme"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qdb-4Y-399" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1250" y="118"/>
+        </scene>
         <!--Register View Controller-->
         <scene sceneID="L9B-Fn-Crj">
             <objects>
-                <viewController id="5Zn-30-vZk" customClass="RegisterViewController" customModule="Group1Alpha" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Register" id="5Zn-30-vZk" customClass="RegisterViewController" customModule="Group1Alpha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zf3-Mc-ogG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -110,8 +125,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYR-Oq-hGX">
-                                <rect key="frame" x="59" y="233" width="84" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYR-Oq-hGX">
+                                <rect key="frame" x="59" y="233" width="46" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -122,28 +137,29 @@
                         <viewLayoutGuide key="safeArea" id="fmY-6A-VsF"/>
                     </view>
                     <connections>
+                        <outlet property="emailField" destination="efo-9n-2CC" id="Nrc-A0-idM"/>
+                        <outlet property="emailLabel" destination="JYR-Oq-hGX" id="J58-4a-pyV"/>
                         <outlet property="passField" destination="odH-ll-ukr" id="3IA-IK-6CH"/>
                         <outlet property="passLabel" destination="2AN-4h-Rmg" id="JKs-1s-2Qj"/>
                         <outlet property="registerLogo" destination="VRH-tI-GIB" id="Frp-X9-gmu"/>
-                        <outlet property="userField" destination="efo-9n-2CC" id="OuZ-DB-D3l"/>
-                        <outlet property="userLabel" destination="JYR-Oq-hGX" id="MJA-8v-orM"/>
                         <outlet property="warningLabel" destination="qSV-vH-wDr" id="S2n-eL-3Mv"/>
+                        <segue destination="dt0-rd-2VW" kind="show" identifier="loginSegue" id="Tun-vA-xCw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="djz-Kd-pI5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901.60000000000002" y="884.70764617691157"/>
+            <point key="canvasLocation" x="902" y="885"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="EgB-eA-1rY">
             <objects>
-                <viewController id="dt0-rd-2VW" customClass="LoginViewController" customModule="Group1Alpha" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="dt0-rd-2VW" customClass="LoginViewController" customModule="Group1Alpha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Mv-us-Dnh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6x-nB-ukc">
-                                <rect key="frame" x="54" y="239" width="84" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6x-nB-ukc">
+                                <rect key="frame" x="54" y="239" width="46" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
@@ -194,17 +210,18 @@
                         <viewLayoutGuide key="safeArea" id="5Ps-VQ-0Th"/>
                     </view>
                     <connections>
+                        <outlet property="emailField" destination="r0T-xC-woU" id="dIw-WZ-aHL"/>
+                        <outlet property="emailLabel" destination="q6x-nB-ukc" id="mKB-tt-RRx"/>
                         <outlet property="loginLogo" destination="WyS-6c-fld" id="O4H-c4-klO"/>
                         <outlet property="passField" destination="hut-03-oJH" id="nK4-YB-iII"/>
-                        <outlet property="passLabel" destination="JqT-EC-vI8" id="YrZ-Zd-Bip"/>
-                        <outlet property="userField" destination="r0T-xC-woU" id="vsZ-vT-gsi"/>
-                        <outlet property="userLabel" destination="q6x-nB-ukc" id="764-hE-zVU"/>
+                        <outlet property="passLabel" destination="JqT-EC-vI8" id="Fem-dM-Sxj"/>
                         <outlet property="warningLabel" destination="3VG-qx-5Z3" id="isK-5D-oom"/>
+                        <segue destination="kM4-8F-hA3" kind="show" identifier="mapSegue" id="B0x-AQ-wbR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0DF-OX-bzE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="884.70764617691157"/>
+            <point key="canvasLocation" x="143" y="885"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wCT-tK-bzM">
@@ -231,4 +248,7 @@
         <image name="login" width="600" height="287"/>
         <image name="register" width="600" height="245"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Tun-vA-xCw"/>
+    </inferredMetricsTieBreakers>
 </document>

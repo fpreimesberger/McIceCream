@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>47333918729-b8spuhckuigbd2p8fm5107mj5cq8u5nb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.47333918729-b8spuhckuigbd2p8fm5107mj5cq8u5nb</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAk1it60PFkKsCFNTycuxiGmQqAbAAJfiM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>47333918729</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>gp1.Group1Alpha</string>
+	<key>PROJECT_ID</key>
+	<string>mcicecream-1524f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mcicecream-1524f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:47333918729:ios:a52c0446c94e6d8a</string>
+	<key>DATABASE_URL</key>
+	<string>https://mcicecream-1524f.firebaseio.com</string>
+</dict>
+</plist>

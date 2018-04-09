@@ -7,25 +7,36 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginLogo: UIImageView!
-    @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var passLabel: UILabel!
-    @IBOutlet weak var userField: UITextField!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
     
     @IBAction func loginButton(_ sender: Any) {
         // if username or password field is empty, tells user to enter both
-        let userText: String = userField.text!
+        let emailText: String = emailField.text!
         let passText: String = passField.text!
         
-        if userText=="" || passText=="" {
-            warningLabel?.text = "You have to enter both a username and a password."
+        if emailText=="" || passText=="" {
+            warningLabel?.text = "You have to enter both a email and a password."
             warningLabel.center.x = self.view.center.x
         }
         else {
             // database stuff for login
+            Auth.auth().signIn(withEmail: emailText, password: passText) { (user,error) in
+                if error == nil {
+                    //signIn successfull
+                    self.performSegue(withIdentifier: "mapSegue", sender: nil)
+                }else{
+                    //signIn failure
+                    self.warningLabel?.text = error?.localizedDescription
+                }
+            }
         }
     }
     
@@ -36,14 +47,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         loginLogo.center.x = self.view.center.x
         //loginButton.center.x = self.view.center.x
-        userLabel.center.x = self.view.center.x - 80.0
-        userField.center.x = self.view.center.x + 50.0
+        emailLabel.center.x = self.view.center.x - 80.0
+        emailField.center.x = self.view.center.x + 50.0
         passLabel.center.x = self.view.center.x - 80.0
         passField.center.x = self.view.center.x + 50.0
         warningLabel.center.x = self.view.center.x
         
         // retreat keyboard
-        userField.delegate = self
+        emailField.delegate = self
         passField.delegate = self 
     }
     
