@@ -13,6 +13,8 @@ import GoogleMaps
 class MapView: UIViewController,GMSMapViewDelegate,CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
     @IBOutlet weak var mapView: GMSMapView!
+    private let dataProvider = GoogleDataProvider()
+    private let searchRadius: Double = 5000
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,5 +36,17 @@ class MapView: UIViewController,GMSMapViewDelegate,CLLocationManagerDelegate {
         //Finally stop updating location otherwise it will come again and again in this delegate
         self.locationManager.stopUpdatingLocation()
         
+        fetchNearbyPlaces(coordinate: (location?.coordinate)!)
+        
+    }
+    private func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
+        mapView.clear()
+        dataProvider.fetchPlacesNearCoordinate(coordinate, radius:searchRadius) { places in
+            places.forEach {
+                let marker = GMSMarker(position: $0.coordinate)
+                marker.icon = GMSMarker.markerImage(with: .green)
+                marker.map = self.mapView
+            }
+        }
     }
 }

@@ -6,7 +6,7 @@ target 'Group1Alpha' do
   use_frameworks!
   pod 'GoogleMaps'
   pod 'GooglePlaces'
-
+  pod 'SwiftyJSON'
 
   # Pods for Group1Alpha
 

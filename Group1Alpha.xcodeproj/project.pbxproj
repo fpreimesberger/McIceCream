@@ -12,6 +12,8 @@
 		618C6EE14B03E492A15E0361 /* Pods_Group1Alpha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF72371EBA1A03E8AFF85B3 /* Pods_Group1Alpha.framework */; };
 		72536D89207AB20E00165B37 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72536D88207AB20E00165B37 /* GoogleService-Info.plist */; };
 		72536D8B207AFDB100165B37 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72536D8A207AFDB100165B37 /* MapView.swift */; };
+		72B3B204208EA52F009651B5 /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B3B203208EA52F009651B5 /* GooglePlace.swift */; };
+		72B3B206208EA537009651B5 /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B3B205208EA537009651B5 /* GoogleDataProvider.swift */; };
 		9F76579F206C67160006B334 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F76579E206C67160006B334 /* AppDelegate.swift */; };
 		9F7657A1206C67160006B334 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7657A0206C67160006B334 /* ViewController.swift */; };
 		9F7657A4206C67160006B334 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F7657A2206C67160006B334 /* Main.storyboard */; };
@@ -49,6 +51,9 @@
 		6EF72371EBA1A03E8AFF85B3 /* Pods_Group1Alpha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Group1Alpha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72536D88207AB20E00165B37 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		72536D8A207AFDB100165B37 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		727A371E208EAA6C00E31565 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72B3B203208EA52F009651B5 /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GooglePlace.swift; path = "../../../Downloads/Feed_Me_Starter/Feed Me/Model/GooglePlace.swift"; sourceTree = "<group>"; };
+		72B3B205208EA537009651B5 /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleDataProvider.swift; path = "../../../Downloads/Feed_Me_Starter/Feed Me/Model/GoogleDataProvider.swift"; sourceTree = "<group>"; };
 		76B4CD380350FCDE9B79062D /* Pods-Group1AlphaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Group1AlphaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Group1AlphaTests/Pods-Group1AlphaTests.release.xcconfig"; sourceTree = "<group>"; };
 		9F76579B206C67160006B334 /* Group1Alpha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Group1Alpha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F76579E206C67160006B334 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +149,8 @@
 				9F7657A5206C67160006B334 /* Assets.xcassets */,
 				9F7657A7206C67160006B334 /* LaunchScreen.storyboard */,
 				9F7657AA206C67160006B334 /* Info.plist */,
+				72B3B203208EA52F009651B5 /* GooglePlace.swift */,
+				72B3B205208EA537009651B5 /* GoogleDataProvider.swift */,
 				72536D8A207AFDB100165B37 /* MapView.swift */,
 				9F7657CC206C6DE40006B334 /* LoginViewController.swift */,
 				9F7657CE206C6DF10006B334 /* RegisterViewController.swift */,
@@ -173,6 +180,7 @@
 		CA1F9DD0A041F0A3B4BD5667 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				727A371E208EAA6C00E31565 /* SwiftyJSON.framework */,
 				6EF72371EBA1A03E8AFF85B3 /* Pods_Group1Alpha.framework */,
 				05F41B6F6DC3A745B28AB3D6 /* Pods_Group1AlphaTests.framework */,
 				CE74F6F17BBBA10D455733B1 /* Pods_Group1AlphaUITests.framework */,
@@ -446,12 +454,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Group1Alpha/Pods-Group1Alpha-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,7 +498,9 @@
 				9F7657A1206C67160006B334 /* ViewController.swift in Sources */,
 				72536D8B207AFDB100165B37 /* MapView.swift in Sources */,
 				9F76579F206C67160006B334 /* AppDelegate.swift in Sources */,
+				72B3B206208EA537009651B5 /* GoogleDataProvider.swift in Sources */,
 				9F7657CF206C6DF10006B334 /* RegisterViewController.swift in Sources */,
+				72B3B204208EA52F009651B5 /* GooglePlace.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
