@@ -65,6 +65,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // keyboard retreats if user hits return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // FIX IF USER AND PASS ARE FILLED IN SO THEY CAN LOGIN!!!
+        
         textField.resignFirstResponder()
         return true
     }
