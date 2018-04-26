@@ -9,9 +9,11 @@
 import Foundation
 import UIKit
 import GoogleMaps
+import Firebase
 
 class MapView: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
+    var ref = Database.database().reference()
     @IBOutlet weak var mapView: GMSMapView!
     private let dataProvider = GoogleDataProvider()
     private let searchRadius: Double = 5000
@@ -65,19 +67,50 @@ class MapView: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
         mapView.clear()
         dataProvider.fetchPlacesNearCoordinate(coordinate, radius:searchRadius) { places in
             places.forEach {
-                let marker = GMSMarker(position: $0.coordinate)
-                marker.icon = GMSMarker.markerImage(with: .green)
-                marker.map = self.mapView
-                
-                // Display data for selected
-                let location = marker.description // for use in database
-                marker.title = "Ice cream machine status: <status>"
-                marker.snippet = "Tap for comments or to update"
-                
-                // Change color to green or red if working or not working !!!!!!!!!!!!!!!!!!
-                marker.icon = GMSMarker.markerImage(with: UIColor.green)
-                marker.opacity = 0.75
+                let place = $0
+                let marker = GMSMarker(position: place.coordinate)
+                self.createAddress(place: place){ success in
+                    if success{
+                        self.checkStatus(place:place){ isOn in
+                            if( isOn == 1 ){
+                                marker.icon = GMSMarker.markerImage(with: .green)
+                            }else if ( isOn == 0 ){
+                                marker.icon = GMSMarker.markerImage(with: .red)
+                            }else if ( isOn == -1){
+                                marker.icon = GMSMarker.markerImage(with: .yellow)
+                            }
+                            marker.map = self.mapView
+                            marker.title = "Ice cream machine status: <status>"
+                            marker.snippet = "Tap for comments or to update"
+                        }
+                    }else{
+                        print("Failed to check address")
+                    }
+                }
+
             }
+        }
+    }
+    func createAddress(place: GooglePlace, completion: @escaping (Bool) -> Void){
+        self.ref.child("places").observeSingleEvent(of: .value, with: {(snapshot) in
+            if(snapshot.hasChild(place.address) == false) {
+                self.ref.child("places").child(place.address).setValue(["isOn": -1])
+            }
+            completion(true)
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    func checkStatus(place: GooglePlace, completion: @escaping (Int64) -> Void){
+        var isOn: Int64?
+        self.ref.child("places").child(place.address).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            isOn = value?["isOn"] as? Int64
+            if isOn != nil{
+                completion(isOn!)
+            }
+        }) { (error) in
+            print(error.localizedDescription)
         }
     }
 }
