@@ -23,7 +23,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let passText: String = passField.text!
         
         if emailText=="" || passText=="" {
-            warningLabel?.text = "You have to enter both a email and a password."
+            warningLabel?.text = "You have to enter both an email and a password."
             warningLabel.center.x = self.view.center.x
         }
         else {
