@@ -14,6 +14,7 @@
 		72536D8B207AFDB100165B37 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72536D8A207AFDB100165B37 /* MapView.swift */; };
 		72B3B204208EA52F009651B5 /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B3B203208EA52F009651B5 /* GooglePlace.swift */; };
 		72B3B206208EA537009651B5 /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B3B205208EA537009651B5 /* GoogleDataProvider.swift */; };
+		9F47912B209272C600404C91 /* CommentsStuffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F47912A209272C600404C91 /* CommentsStuffViewController.swift */; };
 		9F76579F206C67160006B334 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F76579E206C67160006B334 /* AppDelegate.swift */; };
 		9F7657A1206C67160006B334 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7657A0206C67160006B334 /* ViewController.swift */; };
 		9F7657A4206C67160006B334 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F7657A2206C67160006B334 /* Main.storyboard */; };
@@ -24,7 +25,6 @@
 		9F7657CD206C6DE40006B334 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7657CC206C6DE40006B334 /* LoginViewController.swift */; };
 		9F7657CF206C6DF10006B334 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7657CE206C6DF10006B334 /* RegisterViewController.swift */; };
 		9F7657D1206C76570006B334 /* Group1AlphaREADEME.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F7657D0206C76570006B334 /* Group1AlphaREADEME.md */; };
-		9FB0D13F2090FCA700DF485F /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB0D13E2090FCA700DF485F /* CommentsTableViewController.swift */; };
 		9FB0D1412091056C00DF485F /* MapTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB0D1402091056C00DF485F /* MapTasks.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +57,7 @@
 		72B3B203208EA52F009651B5 /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
 		72B3B205208EA537009651B5 /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleDataProvider.swift; sourceTree = "<group>"; };
 		76B4CD380350FCDE9B79062D /* Pods-Group1AlphaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Group1AlphaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Group1AlphaTests/Pods-Group1AlphaTests.release.xcconfig"; sourceTree = "<group>"; };
+		9F47912A209272C600404C91 /* CommentsStuffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsStuffViewController.swift; sourceTree = "<group>"; };
 		9F76579B206C67160006B334 /* Group1Alpha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Group1Alpha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F76579E206C67160006B334 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F7657A0206C67160006B334 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,7 +74,6 @@
 		9F7657CC206C6DE40006B334 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9F7657CE206C6DF10006B334 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9F7657D0206C76570006B334 /* Group1AlphaREADEME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Group1AlphaREADEME.md; sourceTree = "<group>"; };
-		9FB0D13E2090FCA700DF485F /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
 		9FB0D1402091056C00DF485F /* MapTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTasks.swift; sourceTree = "<group>"; };
 		C0CBE0B0462198846D804361 /* Pods-Group1Alpha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Group1Alpha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Group1Alpha/Pods-Group1Alpha.debug.xcconfig"; sourceTree = "<group>"; };
 		C7A9F1F55D68331F988DC14D /* Pods-Group1Alpha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Group1Alpha.release.xcconfig"; path = "Pods/Target Support Files/Pods-Group1Alpha/Pods-Group1Alpha.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,8 +159,8 @@
 				9F7657CC206C6DE40006B334 /* LoginViewController.swift */,
 				9F7657CE206C6DF10006B334 /* RegisterViewController.swift */,
 				9F7657D0206C76570006B334 /* Group1AlphaREADEME.md */,
-				9FB0D13E2090FCA700DF485F /* CommentsTableViewController.swift */,
 				9FB0D1402091056C00DF485F /* MapTasks.swift */,
+				9F47912A209272C600404C91 /* CommentsStuffViewController.swift */,
 			);
 			path = Group1Alpha;
 			sourceTree = "<group>";
@@ -504,8 +504,8 @@
 			files = (
 				9F7657CD206C6DE40006B334 /* LoginViewController.swift in Sources */,
 				9F7657A1206C67160006B334 /* ViewController.swift in Sources */,
+				9F47912B209272C600404C91 /* CommentsStuffViewController.swift in Sources */,
 				72536D8B207AFDB100165B37 /* MapView.swift in Sources */,
-				9FB0D13F2090FCA700DF485F /* CommentsTableViewController.swift in Sources */,
 				9F76579F206C67160006B334 /* AppDelegate.swift in Sources */,
 				72B3B206208EA537009651B5 /* GoogleDataProvider.swift in Sources */,
 				9FB0D1412091056C00DF485F /* MapTasks.swift in Sources */,

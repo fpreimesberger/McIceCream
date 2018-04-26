@@ -16,6 +16,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var passLabel: UILabel!
     @IBOutlet weak var passField: UITextField!
+    @IBOutlet weak var registerBtnCntr: UIButton!
     
     @IBAction func makeAcctButton(_ sender: Any) {
         // if username or password field is empty, tells user to enter both
@@ -51,6 +52,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         passLabel.center.x = self.view.center.x - 80.0
         passField.center.x = self.view.center.x + 50.0
         warningLabel.center.x = self.view.center.x
+        registerBtnCntr.center.x = self.view.center.x
         
         // retreat keyboard
         emailField.delegate = self
