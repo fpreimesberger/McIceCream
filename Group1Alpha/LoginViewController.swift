@@ -16,6 +16,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
+    @IBOutlet weak var loginBtnCntr: UIButton!
     
     @IBAction func loginButton(_ sender: Any) {
         // if username or password field is empty, tells user to enter both
@@ -52,6 +53,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passLabel.center.x = self.view.center.x - 80.0
         passField.center.x = self.view.center.x + 50.0
         warningLabel.center.x = self.view.center.x
+        loginBtnCntr.center.x = self.view.center.x
         
         // retreat keyboard
         emailField.delegate = self
@@ -65,8 +67,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // keyboard retreats if user hits return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // FIX IF USER AND PASS ARE FILLED IN SO THEY CAN LOGIN!!!
-        
         textField.resignFirstResponder()
         return true
     }

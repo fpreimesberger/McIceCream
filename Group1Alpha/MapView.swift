@@ -43,7 +43,7 @@ class MapView: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     
     // Custom view for each marker selected. Offers info, segue, update info
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-        let view = UIView(frame: CGRect.init(x: 0, y: 0, width: 250, height: 110))
+        let view = UIView(frame: CGRect.init(x: 0, y: 0, width: 250, height: 70))
         view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 6
         
@@ -51,39 +51,32 @@ class MapView: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
         lbl1.text = "Ice cream machine status:" // update here from database
         view.addSubview(lbl1)
         
-        // This button changes the ice cream status
-        let btn = UIButton(frame: CGRect.init(x: 8, y : 55, width: view.frame.size.width-16, height: 15))
-        btn.setTitle("Tap to change status", for: .normal)
-        btn.setTitleColor(UIColor.blue, for: .normal)
-        view.addSubview(btn)
-        
-        // This button segues to a comments view controller ...
-        let btn2 = UIButton(frame: CGRect.init(x: 8, y : 80, width: view.frame.size.width-16, height: 15))
-        btn2.setTitle("Tap for comments", for: .normal)
-        btn2.setTitleColor(UIColor.blue, for: .normal)
-        view.addSubview(btn2)
-        
         let lbl2 = UILabel(frame: CGRect.init(x: lbl1.frame.origin.x, y: lbl1.frame.origin.y + lbl1.frame.size.height + 3, width: view.frame.size.width - 16, height: 15))
         lbl2.text = "<status>"
         lbl2.font = UIFont.systemFont(ofSize: 14, weight: .light)
         view.addSubview(lbl2)
         
+        let lbl3 = UILabel(frame: CGRect.init(x: lbl1.frame.origin.x, y: lbl1.frame.origin.y + lbl1.frame.size.height + 23, width: view.frame.size.width - -16, height: 15))
+        lbl3.text = "Tap for more!"
+        lbl3.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        view.addSubview(lbl3)
+        
         return view
     }
     
-    // this does not work it wont recognize the markers being tapped
-    func mapView(_ mapView: GMSMapView, didTapInWindowOf marker: GMSMarker){
-        print("HERE")
-        //performSegue(withIdentifier: "comments", sender: marker)
+    // Segues to comments if info window is pressed
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker){
+        print("Marker window pressed!")
+        performSegue(withIdentifier: "comments", sender: marker)
     }
     
     // Segue to comments table if the user presses the icon for a particular location
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "comments" {
-            var nextVC = segue.destination as! CommentsTableViewController
+            var nextVC = segue.destination as! CommentsStuffViewController
             if let marker = sender as? GMSMarker {
                 // pull from database for this location
-                print("XXX")
+                print("Switched to comments view controller")
             }
             
         }

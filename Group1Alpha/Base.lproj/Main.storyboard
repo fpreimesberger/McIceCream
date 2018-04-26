@@ -81,39 +81,113 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="tsm-8A-gVp" id="MGm-5f-JkU"/>
+                        <segue destination="4ii-8i-wJC" kind="show" identifier="comments" id="Ud7-E6-f5w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qdb-4Y-399" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1232.8" y="116.49175412293854"/>
+            <point key="canvasLocation" x="1241" y="129"/>
         </scene>
-        <!--Comments Table View Controller-->
-        <scene sceneID="BQC-Nn-oc3">
+        <!--Comments Stuff View Controller-->
+        <scene sceneID="YSg-Cu-CuN">
             <objects>
-                <tableViewController id="b29-rF-m0D" customClass="CommentsTableViewController" customModule="Group1Alpha" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="okr-My-8i9">
+                <viewController id="4ii-8i-wJC" customClass="CommentsStuffViewController" customModule="Group1Alpha" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jdO-T0-s0y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ice cream machine status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7f-li-YXG">
+                                <rect key="frame" x="24" y="139" width="201" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Most recent comments:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuL-ek-S93">
+                                <rect key="frame" x="24" y="279" width="182" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EyN-gt-MwC">
+                                <rect key="frame" x="139" y="185" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <state key="normal" title="Update status">
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateBtnHandler:" destination="4ii-8i-wJC" eventType="touchUpInside" id="Vjj-g6-aAw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgZ-rc-XWE">
+                                <rect key="frame" x="16" y="323" width="326" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6e-sV-2rd">
+                                <rect key="frame" x="16" y="389" width="326" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rd6-v3-va3">
+                                <rect key="frame" x="16" y="458" width="326" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a comment:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuR-6g-mdA">
+                                <rect key="frame" x="24" y="504" width="126" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QYq-WM-Udt">
+                                <rect key="frame" x="16" y="533" width="326" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HvP-6H-BCR">
+                                <rect key="frame" x="121" y="581" width="117" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit comment"/>
+                                <connections>
+                                    <action selector="submitBtnHandler:" destination="4ii-8i-wJC" eventType="touchUpInside" id="Djz-18-sJS"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;status&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTX-cu-HV6">
+                                <rect key="frame" x="233" y="139" width="142" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="i1I-NL-91A">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i1I-NL-91A" id="lVg-L3-ZGZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="b29-rF-m0D" id="6ew-eh-7zP"/>
-                            <outlet property="delegate" destination="b29-rF-m0D" id="3yC-at-Axh"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e16-FI-ciX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <viewLayoutGuide key="safeArea" id="u8c-2x-pv9"/>
+                    </view>
+                    <connections>
+                        <outlet property="commentTextField" destination="QYq-WM-Udt" id="lX9-0p-vAL"/>
+                        <outlet property="firstCommentLbl" destination="BgZ-rc-XWE" id="yma-Ft-gsH"/>
+                        <outlet property="secondCommentLbl" destination="j6e-sV-2rd" id="xQE-1u-FoU"/>
+                        <outlet property="statusLbl" destination="OTX-cu-HV6" id="gBL-xx-y9s"/>
+                        <outlet property="submitBtnCntr" destination="HvP-6H-BCR" id="r4B-jD-Ckc"/>
+                        <outlet property="thirdCommentLbl" destination="rd6-v3-va3" id="cfh-zK-BIq"/>
+                        <outlet property="updateBtnCntr" destination="EyN-gt-MwC" id="Gwa-3k-qoF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mIh-r2-3le" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1890" y="691"/>
+            <point key="canvasLocation" x="1946.4000000000001" y="597.75112443778119"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="L9B-Fn-Crj">
@@ -179,6 +253,7 @@
                         <outlet property="emailLabel" destination="JYR-Oq-hGX" id="J58-4a-pyV"/>
                         <outlet property="passField" destination="odH-ll-ukr" id="3IA-IK-6CH"/>
                         <outlet property="passLabel" destination="2AN-4h-Rmg" id="JKs-1s-2Qj"/>
+                        <outlet property="registerBtnCntr" destination="tDv-Mo-u4C" id="Zi7-9S-XW3"/>
                         <outlet property="registerLogo" destination="VRH-tI-GIB" id="Frp-X9-gmu"/>
                         <outlet property="warningLabel" destination="qSV-vH-wDr" id="S2n-eL-3Mv"/>
                         <segue destination="dt0-rd-2VW" kind="show" identifier="loginSegue" id="Tun-vA-xCw"/>
@@ -250,6 +325,7 @@
                     <connections>
                         <outlet property="emailField" destination="r0T-xC-woU" id="dIw-WZ-aHL"/>
                         <outlet property="emailLabel" destination="q6x-nB-ukc" id="mKB-tt-RRx"/>
+                        <outlet property="loginBtnCntr" destination="xBy-57-jsM" id="05b-rJ-geb"/>
                         <outlet property="loginLogo" destination="WyS-6c-fld" id="O4H-c4-klO"/>
                         <outlet property="passField" destination="hut-03-oJH" id="nK4-YB-iII"/>
                         <outlet property="passLabel" destination="JqT-EC-vI8" id="Fem-dM-Sxj"/>
