@@ -24,6 +24,8 @@
 		9F7657CD206C6DE40006B334 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7657CC206C6DE40006B334 /* LoginViewController.swift */; };
 		9F7657CF206C6DF10006B334 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7657CE206C6DF10006B334 /* RegisterViewController.swift */; };
 		9F7657D1206C76570006B334 /* Group1AlphaREADEME.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F7657D0206C76570006B334 /* Group1AlphaREADEME.md */; };
+		9FB0D13F2090FCA700DF485F /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB0D13E2090FCA700DF485F /* CommentsTableViewController.swift */; };
+		9FB0D1412091056C00DF485F /* MapTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB0D1402091056C00DF485F /* MapTasks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		9F7657CC206C6DE40006B334 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9F7657CE206C6DF10006B334 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9F7657D0206C76570006B334 /* Group1AlphaREADEME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Group1AlphaREADEME.md; sourceTree = "<group>"; };
+		9FB0D13E2090FCA700DF485F /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
+		9FB0D1402091056C00DF485F /* MapTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTasks.swift; sourceTree = "<group>"; };
 		C0CBE0B0462198846D804361 /* Pods-Group1Alpha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Group1Alpha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Group1Alpha/Pods-Group1Alpha.debug.xcconfig"; sourceTree = "<group>"; };
 		C7A9F1F55D68331F988DC14D /* Pods-Group1Alpha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Group1Alpha.release.xcconfig"; path = "Pods/Target Support Files/Pods-Group1Alpha/Pods-Group1Alpha.release.xcconfig"; sourceTree = "<group>"; };
 		CE74F6F17BBBA10D455733B1 /* Pods_Group1AlphaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Group1AlphaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +159,8 @@
 				9F7657CC206C6DE40006B334 /* LoginViewController.swift */,
 				9F7657CE206C6DF10006B334 /* RegisterViewController.swift */,
 				9F7657D0206C76570006B334 /* Group1AlphaREADEME.md */,
+				9FB0D13E2090FCA700DF485F /* CommentsTableViewController.swift */,
+				9FB0D1402091056C00DF485F /* MapTasks.swift */,
 			);
 			path = Group1Alpha;
 			sourceTree = "<group>";
@@ -499,8 +505,10 @@
 				9F7657CD206C6DE40006B334 /* LoginViewController.swift in Sources */,
 				9F7657A1206C67160006B334 /* ViewController.swift in Sources */,
 				72536D8B207AFDB100165B37 /* MapView.swift in Sources */,
+				9FB0D13F2090FCA700DF485F /* CommentsTableViewController.swift in Sources */,
 				9F76579F206C67160006B334 /* AppDelegate.swift in Sources */,
 				72B3B206208EA537009651B5 /* GoogleDataProvider.swift in Sources */,
+				9FB0D1412091056C00DF485F /* MapTasks.swift in Sources */,
 				9F7657CF206C6DF10006B334 /* RegisterViewController.swift in Sources */,
 				72B3B204208EA52F009651B5 /* GooglePlace.swift in Sources */,
 			);

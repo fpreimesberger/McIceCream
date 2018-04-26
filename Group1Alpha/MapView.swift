@@ -11,7 +11,7 @@ import UIKit
 import GoogleMaps
 import Firebase
 
-class MapView: UIViewController,GMSMapViewDelegate,CLLocationManagerDelegate {
+class MapView: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
     var ref = Database.database().reference()
     @IBOutlet weak var mapView: GMSMapView!
@@ -27,6 +27,9 @@ class MapView: UIViewController,GMSMapViewDelegate,CLLocationManagerDelegate {
         //Location Manager code to fetch current location
         self.locationManager.delegate = self
         self.locationManager.startUpdatingLocation()
+        
+        
+        self.title = "Map"
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
@@ -41,6 +44,25 @@ class MapView: UIViewController,GMSMapViewDelegate,CLLocationManagerDelegate {
         fetchNearbyPlaces(coordinate: (location?.coordinate)!)
         
     }
+    
+    // this does not work it wont recognize the markers being tapped
+    func mapView(_ mapView: GMSMapView, didTapInWindowOf marker: GMSMarker){
+        print("HERE")
+        performSegue(withIdentifier: "comments", sender: marker)
+    }
+    
+    // Segue to comments table if the user presses the icon for a particular location
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "comments" {
+            var nextVC = segue.destination as! CommentsTableViewController
+            if let marker = sender as? GMSMarker {
+                // pull from database for this location
+                print("XXX")
+            }
+            
+        }
+    }
+    
     private func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
         mapView.clear()
         dataProvider.fetchPlacesNearCoordinate(coordinate, radius:searchRadius) { places in
@@ -58,11 +80,14 @@ class MapView: UIViewController,GMSMapViewDelegate,CLLocationManagerDelegate {
                                 marker.icon = GMSMarker.markerImage(with: .yellow)
                             }
                             marker.map = self.mapView
+                            marker.title = "Ice cream machine status: <status>"
+                            marker.snippet = "Tap for comments or to update"
                         }
                     }else{
                         print("Failed to check address")
                     }
                 }
+
             }
         }
     }
