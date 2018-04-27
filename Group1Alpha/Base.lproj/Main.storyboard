@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tGf-de-tmz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tGf-de-tmz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -65,6 +65,7 @@
         <!--Map View-->
         <scene sceneID="gS3-xf-sDR">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qdb-4Y-399" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="kM4-8F-hA3" customClass="MapView" customModule="Group1Alpha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5ic-0P-HUl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -79,14 +80,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="BmA-Eg-Sme"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem systemItem="refresh" id="5af-d6-xj0"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="tsm-8A-gVp" id="MGm-5f-JkU"/>
                         <segue destination="4ii-8i-wJC" kind="show" identifier="comments" id="Ud7-E6-f5w"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qdb-4Y-399" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1241" y="129"/>
+            <point key="canvasLocation" x="1240.8" y="128.18590704647679"/>
         </scene>
         <!--Comments Stuff View Controller-->
         <scene sceneID="YSg-Cu-CuN">
@@ -111,14 +115,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EyN-gt-MwC">
-                                <rect key="frame" x="139" y="185" width="97" height="30"/>
+                                <rect key="frame" x="87" y="183" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <state key="normal" title="Update status">
+                                <state key="normal" title="Working">
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="updateBtnHandler:" destination="4ii-8i-wJC" eventType="touchUpInside" id="Vjj-g6-aAw"/>
+                                    <action selector="workingBtnHandler:" destination="4ii-8i-wJC" eventType="touchUpInside" id="9Ih-DV-ucY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgZ-rc-XWE">
@@ -171,6 +175,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPl-0A-Vk6">
+                                <rect key="frame" x="213" y="183" width="86" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Not Working"/>
+                                <connections>
+                                    <action selector="notWorkingBtnHandler:" destination="4ii-8i-wJC" eventType="touchUpInside" id="KhC-IA-gZx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="u8c-2x-pv9"/>
@@ -178,11 +190,12 @@
                     <connections>
                         <outlet property="commentTextField" destination="QYq-WM-Udt" id="lX9-0p-vAL"/>
                         <outlet property="firstCommentLbl" destination="BgZ-rc-XWE" id="yma-Ft-gsH"/>
+                        <outlet property="notWorkingBtn" destination="hPl-0A-Vk6" id="gOT-Cg-7J8"/>
                         <outlet property="secondCommentLbl" destination="j6e-sV-2rd" id="xQE-1u-FoU"/>
                         <outlet property="statusLbl" destination="OTX-cu-HV6" id="gBL-xx-y9s"/>
-                        <outlet property="submitBtnCntr" destination="HvP-6H-BCR" id="r4B-jD-Ckc"/>
+                        <outlet property="submitCmntBtn" destination="HvP-6H-BCR" id="58z-lx-hP7"/>
                         <outlet property="thirdCommentLbl" destination="rd6-v3-va3" id="cfh-zK-BIq"/>
-                        <outlet property="updateBtnCntr" destination="EyN-gt-MwC" id="Gwa-3k-qoF"/>
+                        <outlet property="workingBtn" destination="EyN-gt-MwC" id="DTC-aX-Hr9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mIh-r2-3le" userLabel="First Responder" sceneMemberID="firstResponder"/>

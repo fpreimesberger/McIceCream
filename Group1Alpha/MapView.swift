@@ -41,8 +41,11 @@ class MapView: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
         fetchNearbyPlaces(coordinate: (location?.coordinate)!)
     }
     
+    @IBAction func refreshMap(_ sender: Any) {
+        fetchNearbyPlaces(coordinate: mapView.camera.target)
+    }
     // Custom view for each marker selected. Offers info, segue, update info
-    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+    /*func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         let view = UIView(frame: CGRect.init(x: 0, y: 0, width: 250, height: 70))
         view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 6
@@ -52,7 +55,7 @@ class MapView: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
         view.addSubview(lbl1)
         
         let lbl2 = UILabel(frame: CGRect.init(x: lbl1.frame.origin.x, y: lbl1.frame.origin.y + lbl1.frame.size.height + 3, width: view.frame.size.width - 16, height: 15))
-        lbl2.text = "<status>"
+        lbl2.text = marker.title
         lbl2.font = UIFont.systemFont(ofSize: 14, weight: .light)
         view.addSubview(lbl2)
         
@@ -62,7 +65,7 @@ class MapView: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
         view.addSubview(lbl3)
         
         return view
-    }
+    }*/
     
     // Segues to comments if info window is pressed
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker){
@@ -73,12 +76,11 @@ class MapView: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     // Segue to comments table if the user presses the icon for a particular location
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "comments" {
-            var nextVC = segue.destination as! CommentsStuffViewController
-            if let marker = sender as? GMSMarker {
-                // pull from database for this location
+            let nextVC = segue.destination as! CommentsStuffViewController
+            if let marker = sender as? GMSMarker{
+                nextVC.marker = marker
                 print("Switched to comments view controller")
             }
-            
         }
     }
     
@@ -99,8 +101,7 @@ class MapView: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
                                 marker.icon = GMSMarker.markerImage(with: .yellow)
                             }
                             marker.map = self.mapView
-                            marker.title = "Ice cream machine status: <status>"
-                            marker.snippet = "Tap for comments or to update"
+                            marker.title = place.address
                         }
                     }else{
                         print("Failed to check address")
