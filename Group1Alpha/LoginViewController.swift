@@ -47,7 +47,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         loginLogo.center.x = self.view.center.x
-        //loginButton.center.x = self.view.center.x
+        loginBtnCntr.layer.cornerRadius = 10
         emailLabel.center.x = self.view.center.x - 80.0
         emailField.center.x = self.view.center.x + 50.0
         passLabel.center.x = self.view.center.x - 80.0
@@ -58,6 +58,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // retreat keyboard
         emailField.delegate = self
         passField.delegate = self 
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Log out"
+        navigationItem.backBarButtonItem = backItem
+        passField?.text = ""
     }
     
     // keyboard retreats if user clicks on view

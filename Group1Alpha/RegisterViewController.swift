@@ -47,6 +47,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         registerLogo.center.x = self.view.center.x
+        registerBtnCntr.layer.cornerRadius = 10
         emailLabel.center.x = self.view.center.x - 80.0
         emailField.center.x = self.view.center.x + 50.0
         passLabel.center.x = self.view.center.x - 80.0

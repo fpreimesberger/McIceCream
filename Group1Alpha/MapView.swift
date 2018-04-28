@@ -18,16 +18,22 @@ class MapView: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     private let dataProvider = GoogleDataProvider()
     private let searchRadius: Double = 5000
     
+    @IBAction func REFRESHbtn(_ sender: Any) {
+        print("Refresh pressed")
+        fetchNearbyPlaces(coordinate: mapView.camera.target)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.isMyLocationEnabled = true
         mapView.delegate = self
         mapView.frame = view.bounds
+        // Refresh button
+        self.navigationController?.isToolbarHidden = false
+        
         
         //Location Manager code to fetch current location
         self.locationManager.delegate = self
         self.locationManager.startUpdatingLocation()
-        
         
         self.title = "Map"
     }
@@ -41,9 +47,6 @@ class MapView: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
         fetchNearbyPlaces(coordinate: (location?.coordinate)!)
     }
     
-    @IBAction func refreshMap(_ sender: Any) {
-        fetchNearbyPlaces(coordinate: mapView.camera.target)
-    }
     // Custom view for each marker selected. Offers info, segue, update info
     /*func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         let view = UIView(frame: CGRect.init(x: 0, y: 0, width: 250, height: 70))
@@ -98,7 +101,7 @@ class MapView: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
                             }else if ( isOn == 0 ){
                                 marker.icon = GMSMarker.markerImage(with: .red)
                             }else if ( isOn == -1){
-                                marker.icon = GMSMarker.markerImage(with: .yellow)
+                                marker.icon = GMSMarker.markerImage(with: .gray)
                             }
                             marker.map = self.mapView
                             marker.title = place.address
