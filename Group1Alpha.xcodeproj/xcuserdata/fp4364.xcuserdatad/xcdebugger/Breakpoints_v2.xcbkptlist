@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Group1Alpha/LoginViewController.swift"
-            timestampString = "546472783.994491"
+            timestampString = "546641644.508109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "LoginViewController"
             landmarkType = "3">
          </BreakpointContent>

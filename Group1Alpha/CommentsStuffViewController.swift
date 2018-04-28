@@ -19,9 +19,16 @@ class CommentsStuffViewController: UIViewController {
     @IBOutlet weak var notWorkingBtn: UIButton!
     @IBOutlet weak var workingBtn: UIButton!
     @IBOutlet weak var submitCmntBtn: UIButton!
+    @IBOutlet weak var recentCommentsLbl: UILabel!
+    @IBOutlet weak var addCommentsLbl: UILabel!
+
     var alertController: UIAlertController? = nil
     var marker:GMSMarker?
     var ref = Database.database().reference()
+    
+    @IBAction func refreshBtn(_ sender: Any) {
+        print("Refresh button")
+    }
     
     @IBAction func workingBtnHandler(_ sender: Any) {
         statusLbl?.text = "WORKING"
@@ -39,6 +46,7 @@ class CommentsStuffViewController: UIViewController {
         self.alertController = UIAlertController(title: "Comment submitted", message: "Thanks!", preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "Ok", style: .default) {
             (action:UIAlertAction) in print("OK button")
+            self.commentTextField?.text = ""
         }
         self.alertController!.addAction(OKAction)
         self.present(self.alertController!, animated: true, completion: nil)
@@ -48,6 +56,7 @@ class CommentsStuffViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isToolbarHidden = false
 
         self.title = "Comments"
         self.checkStatus(address:(marker!.title)!){ isOn in
@@ -66,7 +75,11 @@ class CommentsStuffViewController: UIViewController {
         submitCmntBtn.center.x = view.center.x
         
         grabComments()
-        
+        firstCommentLbl.center.x = self.view.center.x
+        secondCommentLbl.center.x = self.view.center.x
+        thirdCommentLbl.center.x = self.view.center.x
+        recentCommentsLbl.center.x = self.view.center.x
+        addCommentsLbl.center.x = self.view.center.x
     }
         
         // Grab comments info from database and fill in. The labels are there just empty
